@@ -18,11 +18,11 @@ jobs:
       - name: Upload to somee.com via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ftp://Nhom13.somee.com/www.Nhom13.somee.com
+          server: Nhom13.somee.com
           username: ${{ secrets.FTP_USERNAME }}    # Đúng tên secret
           password: ${{ secrets.FTP_PASSWORD }}    # Đúng tên secret
           local-dir: ./
-          server-dir: /
+          server-dir: /www.Nhom13.somee.com/
           dangerous-clean-slate: false
           exclude: |
             **/.git*
