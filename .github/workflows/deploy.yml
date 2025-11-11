@@ -1,3 +1,5 @@
+# .github/workflows/deploy.yml
+
 name: Deploy Static Site to somee.com (Windows)
 
 on:
@@ -7,7 +9,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: windows-latest  # Dùng Windows thay vì Ubuntu
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repository
@@ -16,12 +18,12 @@ jobs:
       - name: Upload to somee.com via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ftp://nhom13.somee.com/www.Nhom13.somee.com
-          username: ${{ DangTest }}
-          password: ${{ Dang12345678 }}
-          local-dir: ./                    # Thư mục chứa index.html
-          server-dir: /                    # Root domain trên somee.com
-          dangerous-clean-slate: false     # Không xóa file cũ
+          server: ftp.somee.com
+          username: ${{ secrets.FTP_USERNAME }}    # Đúng tên secret
+          password: ${{ secrets.FTP_PASSWORD }}    # Đúng tên secret
+          local-dir: ./
+          server-dir: /
+          dangerous-clean-slate: false
           exclude: |
             **/.git*
             **/.github*
