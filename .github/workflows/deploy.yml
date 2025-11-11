@@ -1,0 +1,29 @@
+name: Deploy Static Site to somee.com (Windows)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: windows-latest  # Dùng Windows thay vì Ubuntu
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Upload to somee.com via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp://nhom13.somee.com/www.Nhom13.somee.com
+          username: ${{ DangTest }}
+          password: ${{ Dang12345678 }}
+          local-dir: ./                    # Thư mục chứa index.html
+          server-dir: /                    # Root domain trên somee.com
+          dangerous-clean-slate: false     # Không xóa file cũ
+          exclude: |
+            **/.git*
+            **/.github*
+            **/README.md
+            **/deploy.yml
