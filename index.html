@@ -1,11 +1,290 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nhóm 13 | OSS - Giới thiệu bản thân</title>
+  <meta name="description" content="Bài tập Open Source Software - Nhóm 13 - 2025" />
+  
+  <!-- Favicon (tùy chọn) -->
+  <link rel="icon" href="https://img.icons8.com/fluency/48/group.png" type="image/png">
+
+  <style>
+    /* === RESET & TYPOGRAPHY === */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #1e3c72, #2a5298, #00d2ff, #3a7bd5);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      color: #fff;
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* === CONTAINER === */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* === HEADER === */
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+      animation: fadeInDown 1s ease-out;
+    }
+    header h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    header p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    /* === AVATAR GROUP === */
+    .avatar-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 40px 0;
+    }
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid rgba(255,255,255,0.3);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+    .avatar:hover {
+      transform: translateY(-10px) scale(1.05);
+      border-color: #fff;
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .avatar-label {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* === INFO CARDS === */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin: 50px 0;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.4s ease;
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    .card:hover {
+      transform: translateY(-15px);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card h3::before {
+      content: "";
+      font-size: 1.8rem;
+    }
+    .card ul {
+      list-style: none;
+    }
+    .card ul li {
+      margin: 10px 0;
+      padding-left: 5px;
+      position: relative;
+      font-size: 1.05rem;
+    }
+    .card ul li::before {
+      content: "→";
+      color: #a0e7ff;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    /* === SKILLS BADGES === */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 15px;
+    }
+    .skill {
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      color: white;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0,114,255,0.3);
+    }
+
+    /* === FOOTER === */
+    footer {
+      text-align: center;
+      margin-top: 80px;
+      padding: 30px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 20px;
+      font-size: 0.95rem;
+    }
+    footer a {
+      color: #a0e7ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* === ANIMATIONS === */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.4s; }
+    .card:nth-child(3) { animation-delay: 0.6s; }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      .avatar { width: 90px; height: 90px; }
+      .avatar-label { font-size: 0.7rem; padding: 3px 8px; }
+      .info-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Nhóm 13: Bài tập OSS</h1>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <h1>Nhóm 13</h1>
+      <p>Bài tập Open Source Software – 2025</p>
+    </header>
+
+    <!-- Avatar nhóm (ảnh online từ Pexels/Unsplash) -->
+    <div class="avatar-group">
+      <div class="avatar">
+        <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Thành viên 1">
+        <div class="avatar-label">Trần Văn A</div>
+      </div>
+      <div class="avatar">
+        <img src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Thành viên 2">
+        <div class="avatar-label">Nguyễn Thị B</div>
+      </div>
+      <div class="avatar">
+        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Thành viên 3">
+        <div class="avatar-label">Lê Văn C</div>
+      </div>
+      <div class="avatar">
+        <img src="https://images.pexels.com/photos/1181683/pexels-photo-1181683.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Thành viên 4">
+        <div class="avatar-label">Phạm Thị D</div>
+      </div>
+    </div>
+
+    <!-- Thông tin nhóm -->
+    <div class="info-grid">
+      <div class="card">
+        <h3>Thông tin chung</h3>
+        <ul>
+          <li>Lớp: CNTT K60 - Đại học XYZ</li>
+          <li>Môn: Open Source Software</li>
+          <li>Giảng viên: Thầy/Cô ABC</li>
+          <li>Thành viên: 4 người</li>
+          <li>Website: <a href="http://Nhom13.somee.com" style="color:#a0e7ff">Nhom13.somee.com</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Phân công nhiệm vụ</h3>
+        <ul>
+          <li>Trần Văn A – Nhóm trưởng, Code chính</li>
+          <li>Nguyễn Thị B – Thiết kế UI/UX</li>
+          <li>Lê Văn C – GitHub & Deploy</li>
+          <li>Phạm Thị D – Tài liệu & Báo cáo</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Kỹ năng & Công cụ</h3>
+        <div class="skills">
+          <span class="skill">HTML5</span>
+          <span class="skill">CSS3</span>
+          <span class="skill">Git</span>
+          <span class="skill">GitHub Actions</span>
+          <span class="skill">Somee.com</span>
+          <span class="skill">Responsive</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 <strong>Nhóm 13</strong> – Bài tập OSS</p>
+      <p>Deploy tự động qua GitHub Actions → <a href="http://Nhom13.somee.com">Nhom13.somee.com</a></p>
+      <p>Thời gian: <span id="time"></span></p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Hiển thị thời gian thực
+    document.getElementById('time').textContent = new Date().toLocaleString('vi-VN');
+  </script>
 </body>
 </html>
